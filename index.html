@@ -156,7 +156,7 @@
     </div>
   </section>
 
-  <section id="lokacija" style="padding:clamp(72px,9vw,112px) 24px;scroll-margin-top:80px;">
+  <section id="lokacija" style="padding:clamp(72px,9vw,112px) 24px clamp(120px,14vw,165px);scroll-margin-top:80px;">
     <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,60px);align-items:stretch;">
       <div style="flex:2 1 320px;display:flex;flex-direction:column;">
         <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4vw,46px);line-height:1.06;letter-spacing:-0.03em;margin:0;color:#16181d;">Gde se nalazimo</h2>
@@ -185,7 +185,7 @@
     </div>
   </section>
 
-  <section style="position:relative;padding:clamp(104px,12vw,156px) 24px clamp(80px,10vw,130px);background:#eaf5fc;">
+  <section style="position:relative;padding:clamp(104px,12vw,156px) 24px clamp(124px,14vw,180px);background:#eaf5fc;">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;top:0;left:0;width:100%;height:clamp(44px,5.5vw,90px);transform:translateY(calc(-100% + 1px));display:block;"><path d="M0,90 Q720,-8 1440,90 Z" fill="#eaf5fc"></path></svg>
     
     <div style="max-width:1280px;margin:0 auto;">
@@ -231,10 +231,10 @@
     <div style="max-width:1280px;margin:36px auto 0;padding-top:24px;border-top:1px solid #e6e8ec;font-size:14px;color:#a2a7b0;">© 2026 Markovic Dentist</div>
   </footer>
 
-  <div ref="{{ barRef }}" style="position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(140%);opacity:0;pointer-events:none;transition:transform .35s ease,opacity .35s ease;background:var(--accent,#00adf1);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-left: 0px; padding-right: 0px">
-      <div style="min-width:0;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#fff;line-height:1.2;">Zakažite pregled</div>
-      <a href="tel:+38163649655" style="display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--accent,#00adf1);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;padding:13px 22px;border-radius:8px;white-space:nowrap;" style-hover="filter:brightness(0.96);">
+  <div ref="{{ barRef }}" style="position:fixed;left:0;right:0;bottom:0;z-index:50;padding:0 24px 12px;transform:translateY(140%);opacity:0;pointer-events:none;transition:transform .35s ease,opacity .35s ease;">
+    <div style="max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;background:#fff;border:1.5px solid var(--accent,#00adf1);border-radius:16px;box-shadow:0 12px 30px rgba(16,24,40,0.14);">
+      <div style="min-width:0;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#16181d;line-height:1.2;">Zakažite pregled</div>
+      <a href="tel:+38163649655" style="display:inline-flex;align-items:center;gap:9px;background:var(--accent,#00adf1);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;padding:13px 22px;border-radius:8px;white-space:nowrap;" style-hover="filter:brightness(0.93);">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M6.5 4h3l1.5 4-2 1.5a12 12 0 0 0 5 5l1.5-2 4 1.5v3c0 1-.8 1.7-1.8 1.6C11.7 22.6 4.4 15.3 4.9 5.8 5 4.8 5.6 4 6.5 4Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"></path></svg>
         Pozovite nas
       </a>
