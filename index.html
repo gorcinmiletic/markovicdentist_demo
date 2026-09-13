@@ -21,37 +21,84 @@
   .lenis.lenis-smooth{scroll-behavior:auto !important;}
   .lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain;}
   .lenis.lenis-stopped{overflow:hidden;}
+  .md-root.is-mobile p{font-size:16px !important;line-height:1.6 !important;}
+  .md-root.is-mobile h1{font-size:24px !important;line-height:1.15 !important;}
+  .md-root.is-mobile h2{font-size:24px !important;}
+  .md-root.is-mobile h3{font-size:20px !important;}
+  .md-root.is-mobile [data-stmt]{font-size:22px !important;line-height:1.3 !important;}
+  .md-root.is-mobile > section{padding-top:36px !important;padding-bottom:36px !important;padding-left:20px !important;padding-right:20px !important;}
+  .md-root.is-mobile > footer{padding-left:20px !important;padding-right:20px !important;}
+  .md-root.is-mobile [data-hero]{position:relative;padding-bottom:36px !important;}
+  .md-root.is-mobile [data-hero] > div{flex-direction:column !important;align-items:stretch !important;gap:32px !important;}
+  .md-root.is-mobile [data-hero-media]{order:-1;flex:none !important;width:100% !important;min-height:260px !important;border-radius:22px !important;position:relative;}
+  .md-root.is-mobile [data-hero-media] img{min-height:260px !important;height:260px !important;object-fit:cover !important;object-position:50% 40% !important;}
+  .md-root.is-mobile [data-hero-text]{gap:20px !important;flex:none !important;}
+  .md-root.is-mobile [data-hero-text] > div:nth-child(2){row-gap:12px !important;}
+  .md-root.is-mobile [data-hero-text] > div:nth-child(2) > span{height:38px !important;}
+  .md-root.is-mobile [data-hero] h1.hero-over{position:absolute;top:36px;left:20px;right:20px;height:260px;margin:0;padding:22px 14px 0;z-index:2;display:block;text-align:center;font-size:26px !important;line-height:1.35 !important;}
+  .md-root.is-mobile [data-hero] h1.hero-over br:nth-of-type(2){display:none;}
+  .md-root.is-mobile [data-hero] h1.hero-over .md-word{margin:2px 3px;}
+  .md-root.is-mobile .md-word{display:inline-block;line-height:1 !important;background:#fff;color:#16181d;padding:0.04em 0.16em;border-radius:5px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+  .md-root.is-mobile h1.hero-over .md-word:first-child{padding:0.04em 0.16em !important;line-height:1 !important;}
+  .md-root.is-mobile [data-gal-vp]{margin-bottom:0 !important;}
+  .md-root:not(.is-mobile) [data-menu],.md-root:not(.is-mobile) [data-menu-backdrop]{display:none !important;}
+  .md-root.is-mobile [data-menu]{position:fixed;top:0;right:0;height:100vh;width:82%;max-width:320px;background:#fff;z-index:70;transform:translateX(100%);transition:transform .34s cubic-bezier(.4,0,.2,1);box-shadow:-16px 0 44px rgba(16,24,40,0.2);overflow-y:auto;}
+  .md-root.is-mobile [data-menu].open{transform:translateX(0);}
+  .md-root.is-mobile [data-menu] > nav{padding-top:92px !important;}
+  .md-root.is-mobile [data-menu-backdrop]{position:fixed;inset:0;background:rgba(16,24,40,0.45);opacity:0;pointer-events:none;transition:opacity .3s ease;z-index:65;}
+  .md-root.is-mobile [data-menu-backdrop].open{opacity:1;pointer-events:auto;}
+  .md-root.is-mobile [data-hero] + section{padding-top:30px !important;padding-bottom:30px !important;}
+  .md-root.is-mobile #lokacija{padding-bottom:66px !important;}
+  .md-root.is-mobile #lokacija > div > div:last-child{min-height:210px !important;flex-basis:auto !important;}
+  .md-root.is-mobile #lokacija iframe{min-height:210px !important;height:210px !important;}
+  .md-root.is-mobile [data-hero-text] > div:first-child > p{margin-top:0 !important;}
+  .md-root.is-mobile [data-hero-text] > div:nth-child(2) span{font-size:18px !important;}
+  .md-root.is-mobile [data-hero-text] > div:nth-child(2) > div:first-child > span{font-size:21px !important;}
+  .md-root.is-mobile [data-hero-text] > div:nth-child(2) > span{display:none !important;}
+  .md-root.is-mobile [data-hero-text] > div:nth-child(2){flex-direction:column !important;align-items:flex-start !important;gap:14px !important;}
 </style>
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
 </helmet>
-<div ref="{{ rootRef }}" style="--accent:#00adf1;font-family:'Hanken Grotesk',sans-serif;color:#16181d;background:#fff;overflow-x:clip;">
+<div ref="{{ rootRef }}" class="md-root" style="--accent:#00adf1;font-family:'Hanken Grotesk',sans-serif;color:#16181d;background:#fff;overflow-x:clip;">
 
   <header ref="{{ navRef }}" style="border-bottom:1px solid #ecedf1;position:sticky;top:0;z-index:60;background:#fff;transition:transform .35s ease;will-change:transform;">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px; padding-left: 0px; padding-right: 0px">
+    <div ref="{{ navInnerRef }}" style="max-width: 1280px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 16px 28px; padding-left: 0px; padding-right: 0px">
       <div style="display:flex;align-items:center;">
         <img src="uploads/MD Logo.png" alt="Markovic Dentist" style="height:42px;width:auto;display:block;">
       </div>
-      <nav style="display:flex;align-items:center;gap:30px;">
+      <nav ref="{{ navLinksRef }}" style="display:flex;align-items:center;gap:30px;">
         <a href="#usluge" style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;color:#3a3f49;" style-hover="color:var(--accent,#00adf1);">Usluge</a>
         <a href="#galerija" style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;color:#3a3f49;" style-hover="color:var(--accent,#00adf1);">Galerija</a>
         <a href="#lokacija" style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;color:#3a3f49;" style-hover="color:var(--accent,#00adf1);">Lokacija</a>
       </nav>
-      <div style="display:flex;align-items:center;">
+      <div ref="{{ navCtaRef }}" style="display:flex;align-items:center;">
         <a href="tel:+38163649655" style="display:inline-flex;align-items:center;gap:9px;background:var(--accent,#00adf1);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;padding:11px 20px;border-radius:8px;" style-hover="filter:brightness(0.93);">Pozovite nas</a>
       </div>
+      <button ref="{{ navBurgerRef }}" onClick="{{ toggleMenu }}" aria-label="Meni" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;padding:0;background:none;border:0;cursor:pointer;color:#16181d;">
+        <svg ref="{{ burgerIconRef }}" width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
+      </button>
     </div>
+    <div ref="{{ navMenuRef }}" data-menu style="background:#fff;">
+      <nav style="display:flex;flex-direction:column;padding:8px 24px 20px;gap:2px;">
+        <a href="#usluge" onClick="{{ closeMenu }}" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;color:#16181d;padding:14px 0;border-bottom:1px solid #f1f2f5;">Usluge</a>
+        <a href="#galerija" onClick="{{ closeMenu }}" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;color:#16181d;padding:14px 0;border-bottom:1px solid #f1f2f5;">Galerija</a>
+        <a href="#lokacija" onClick="{{ closeMenu }}" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;color:#16181d;padding:14px 0;border-bottom:1px solid #f1f2f5;">Lokacija</a>
+        <a href="tel:+38163649655" onClick="{{ closeMenu }}" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--accent,#00adf1);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;padding:15px 20px;border-radius:8px;margin-top:14px;">Pozovite nas</a>
+      </nav>
+    </div>
+    <div ref="{{ navBackdropRef }}" data-menu-backdrop onClick="{{ closeMenu }}"></div>
   </header>
 
-  <section ref="{{ heroRef }}" style="padding:clamp(40px,5vw,76px) 24px;">
+  <section ref="{{ heroRef }}" data-hero style="padding:clamp(40px,5vw,76px) 24px;">
     <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,60px);align-items:center;">
-      <div style="flex:3 1 480px;display:flex;flex-direction:column;gap:clamp(26px,3.5vw,40px);">
+      <div data-hero-text style="flex:3 1 480px;display:flex;flex-direction:column;gap:clamp(26px,3.5vw,40px);">
         <div>
-          <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(46px,6.6vw,76px);line-height:1.12;letter-spacing:-0.035em;margin:0;text-wrap:balance;color:#16181d;"><span style="display:inline-block;line-height:1;color:#fff;background:#ea018d;padding:0.03em 0.05em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">Bezbolno.</span><br>Moderno.<br>Pouzdano.</h1>
+          <h1 ref="{{ heroTitleRef }}" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(46px,6.6vw,76px);line-height:1.12;letter-spacing:-0.035em;margin:0;text-wrap:balance;color:#16181d;"><span class="md-word" style="display:inline-block;line-height:1;color:#fff;background:#ea018d;padding:0.03em 0.05em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">Bezbolno.</span><br><span class="md-word">Moderno.</span><br><span class="md-word">Pouzdano.</span></h1>
           <p style="font-size:20px;line-height:1.6;color:#4a4f59;margin:18px 0 0;max-width:50ch;">Sve stomatološke usluge na jednom mestu u Vrbasu. Briga o vašem osmehu uz savremenu opremu, bezbolno davanje anestezije i pristup prilagođen svakom pacijentu.</p>
         </div>
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;">
           <div style="display:flex;align-items:center;gap:10px;">
-            
             <svg width="26" height="26" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg>
             <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.02em;color:#16181d;">5.0</span><img src="uploads/Google_Symbol_2.webp" alt="Google" style="width:24px;height:24px;display:block;object-fit:contain;">
           </div>
@@ -71,92 +118,94 @@
           </a>
         </div>
       </div>
-      <div style="flex:2 1 300px;align-self:stretch;min-height:clamp(300px,34vw,440px);overflow:hidden;border-radius:52% 48% 57% 43% / 48% 55% 45% 52%;">
+      <div ref="{{ heroMediaRef }}" data-hero-media style="flex:2 1 300px;align-self:stretch;min-height:clamp(300px,34vw,440px);overflow:hidden;border-radius:52% 48% 57% 43% / 48% 55% 45% 52%;">
         <img src="uploads/MarkovicDentHero.png" alt="Stomatolog sa pacijentom u ordinaciji" style="width:100%;height:100%;min-height:clamp(300px,34vw,440px);object-fit:cover;object-position:center;display:block;">
       </div>
     </div>
   </section>
 
-  <section style="padding:clamp(80px,11vw,140px) 24px;background:var(--accent,#00adf1);">
+  <section style="padding:clamp(52px,11vw,140px) 24px;background:var(--accent,#00adf1);" data-stmt-sec>
     <div style="max-width:1280px;margin:0 auto;">
-      <p style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(28px,4.4vw,52px);line-height:1.16;letter-spacing:-0.025em;margin:0;color:#fff;text-wrap:balance;">Ako vam je i sama pomisao na zubara neprijatna, hajde da <span style="display:inline-block;line-height:1;color:var(--accent,#00adf1);background:#fff;padding:0.03em 0.05em 0.12em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">prvi dolazak</span> bude <span style="display:inline-block;line-height:1;color:#ea018d;background:#fff;padding:0.03em 0.05em 0.12em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">drugačiji</span></p>
+      <p data-stmt="" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(28px,4.4vw,52px);line-height:1.16;letter-spacing:-0.025em;margin:0;color:#fff;text-wrap:balance;">Ako vam je i sama pomisao na zubara neprijatna, hajde da <span style="display:inline-block;line-height:1;color:var(--accent,#00adf1);background:#fff;padding:0.03em 0.05em 0.12em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">prvi dolazak</span> bude <span style="display:inline-block;line-height:1;color:#ea018d;background:#fff;padding:0.03em 0.05em 0.12em;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;">drugačiji</span></p>
     </div>
   </section>
 
-  <section id="usluge" style="padding:clamp(72px,9vw,112px) 24px;background:#f7f8fa;scroll-margin-top:80px;">
+  <section id="usluge" style="padding:clamp(48px,9vw,112px) 24px;background:#f7f8fa;scroll-margin-top:80px;">
     <div style="max-width:1280px;margin:0 auto;">
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:40px;">
         <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4vw,46px);line-height:1;letter-spacing:-0.03em;margin:0;color:#16181d;">Usluge</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;">
-        <div style="border:1px solid #e4e7ec;border-radius:14px;padding:32px;background:#fff;display:flex;flex-direction:column;gap:14px;">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M24 9.5c-3.4-2.6-7.8-2.6-10.7-.2-2.6 2.2-3 6-2.2 11 .8 5 1.6 10.4 3.6 14.3 1.1 2.2 2.3 3.4 3.5 3 1.3-.4 1.6-2.6 2.1-5.6.5-2.8 1-4.7 3.7-4.7s3.2 1.9 3.7 4.7c.5 3 .8 5.2 2.1 5.6 1.2.4 2.4-.8 3.5-3 2-3.9 2.8-9.3 3.6-14.3.8-5 .4-8.8-2.2-11-2.9-2.4-7.3-2.4-10.7.2Z" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linejoin="round"></path><path d="M17 17.5c1.5-1.3 4-1.6 6-.4" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linecap="round"></path></svg>
-          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.02em;margin:10px 0 0;color:#16181d;">Sve vrste stomatoloških usluga</h3>
-          <p style="font-size:17px;line-height:1.55;color:#4a4f59;margin:0;">Od prvog pregleda do potrebnog tretmana, na jednom mestu. Pružamo sve stomatološke usluge uz savremenu opremu i pažljiv pristup svakom pacijentu.</p>
-        </div>
-        <div style="border:1px solid #e4e7ec;border-radius:14px;padding:32px;background:#fff;display:flex;flex-direction:column;gap:14px;">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M9 16v-4a3 3 0 0 1 3-3h4" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M32 9h4a3 3 0 0 1 3 3v4" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M39 32v4a3 3 0 0 1-3 3h-4" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 39h-4a3 3 0 0 1-3-3v-4" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M24 16.5c-2.3-1.7-5-1.4-6.6.2-1.3 1.3-1.2 3.7-.6 7 .5 3 1 5.6 2.2 7.6.7 1.2 1.4 1 1.9-.4.5-1.6.9-2.9 3.1-2.9s2.6 1.3 3.1 2.9c.5 1.4 1.2 1.6 1.9.4 1.2-2 1.7-4.6 2.2-7.6.6-3.3.7-5.7-.6-7-1.6-1.6-4.3-1.9-6.6-.2Z" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linejoin="round"></path><line x1="13" y1="24" x2="35" y2="24" stroke="#ea018d" stroke-width="2" stroke-linecap="round" stroke-dasharray="1.5 3"></line></svg>
-          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.02em;margin:10px 0 0;color:#16181d;">Digitalno snimanje zuba</h3>
-          <p style="font-size:17px;line-height:1.55;color:#4a4f59;margin:0;">Precizna dijagnostika uz savremeno digitalno snimanje zuba. Brzo dobijanje snimka pomaže stomatologu da detaljno proceni stanje i odredi odgovarajući tretman.</p>
+      <div ref="{{ svcViewportRef }}" style="overflow:visible;">
+        <div ref="{{ svcContainerRef }}" style="display:flex;flex-wrap:wrap;gap:24px;">
+          <div style="flex:1 1 300px;min-width:0;border:1px solid #e4e7ec;border-radius:14px;padding:32px;background:#fff;display:flex;flex-direction:column;gap:14px;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M24 9.5c-3.4-2.6-7.8-2.6-10.7-.2-2.6 2.2-3 6-2.2 11 .8 5 1.6 10.4 3.6 14.3 1.1 2.2 2.3 3.4 3.5 3 1.3-.4 1.6-2.6 2.1-5.6.5-2.8 1-4.7 3.7-4.7s3.2 1.9 3.7 4.7c.5 3 .8 5.2 2.1 5.6 1.2.4 2.4-.8 3.5-3 2-3.9 2.8-9.3 3.6-14.3.8-5 .4-8.8-2.2-11-2.9-2.4-7.3-2.4-10.7.2Z" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linejoin="round"></path><path d="M17 17.5c1.5-1.3 4-1.6 6-.4" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linecap="round"></path></svg>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.02em;margin:10px 0 0;color:#16181d;">Sve vrste stomatoloških usluga</h3>
+            <p style="font-size:17px;line-height:1.55;color:#4a4f59;margin:0;">Od prvog pregleda do potrebnog tretmana, na jednom mestu. Pružamo sve stomatološke usluge uz savremenu opremu i pažljiv pristup svakom pacijentu.</p>
+          </div>
+          <div style="flex:1 1 300px;min-width:0;border:1px solid #e4e7ec;border-radius:14px;padding:32px;background:#fff;display:flex;flex-direction:column;gap:14px;">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M9 16v-4a3 3 0 0 1 3-3h4" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M32 9h4a3 3 0 0 1 3 3v4" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M39 32v4a3 3 0 0 1-3 3h-4" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 39h-4a3 3 0 0 1-3-3v-4" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M24 16.5c-2.3-1.7-5-1.4-6.6.2-1.3 1.3-1.2 3.7-.6 7 .5 3 1 5.6 2.2 7.6.7 1.2 1.4 1 1.9-.4.5-1.6.9-2.9 3.1-2.9s2.6 1.3 3.1 2.9c.5 1.4 1.2 1.6 1.9.4 1.2-2 1.7-4.6 2.2-7.6.6-3.3.7-5.7-.6-7-1.6-1.6-4.3-1.9-6.6-.2Z" stroke="var(--accent,#00adf1)" stroke-width="2" stroke-linejoin="round"></path><line x1="13" y1="24" x2="35" y2="24" stroke="#ea018d" stroke-width="2" stroke-linecap="round" stroke-dasharray="1.5 3"></line></svg>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.02em;margin:10px 0 0;color:#16181d;">Digitalno snimanje zuba</h3>
+            <p style="font-size:17px;line-height:1.55;color:#4a4f59;margin:0;">Precizna dijagnostika uz savremeno digitalno snimanje zuba. Brzo dobijanje snimka pomaže stomatologu da detaljno proceni stanje i odredi odgovarajući tretman.</p>
+          </div>
         </div>
       </div>
+      <div ref="{{ svcDotsRef }}" style="display:none;justify-content:center;align-items:center;gap:8px;margin-top:26px;"></div>
     </div>
   </section>
 
-  <section id="galerija" style="padding:clamp(72px,9vw,112px) 24px;scroll-margin-top:80px;">
+  <section id="galerija" style="padding:clamp(48px,9vw,112px) 24px;scroll-margin-top:80px;">
     <div style="max-width:1280px;margin:0 auto;">
       <div style="max-width:640px;margin-bottom:44px;">
         <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4vw,46px);line-height:1.06;letter-spacing:-0.03em;margin:0;color:#16181d;">Dobro došli kod nas</h2>
         <p style="font-size:19px;line-height:1.6;color:#4a4f59;margin:22px 0 0;max-width:52ch;">Pogledajte našu ordinaciju, prostor i savremenu opremu pre nego što zakažete svoj prvi pregled.</p>
-      </div><div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,17vw,205px);gap:16px;margin-bottom:clamp(56px,7vw,88px);">
+      </div><div ref="{{ galleryViewportRef }}" data-gal-vp style="overflow:visible;margin-bottom:clamp(32px,7vw,88px);"><div ref="{{ galleryRef }}" style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,17vw,205px);gap:16px;">
         <div style="grid-column:span 2;grid-row:span 2;border-radius:12px;overflow:hidden;border:1px solid #e2e5ea;"><img src="uploads/Ordinacija 1" alt="Ordinacija Marković Dentist" style="width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;"></div>
         <div style="grid-column:span 2;grid-row:span 1;border-radius:12px;overflow:hidden;border:1px solid #e2e5ea;"><img src="uploads/Ordinacija 2" alt="Ordinacija Marković Dentist" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div style="grid-column:span 1;grid-row:span 1;border-radius:12px;overflow:hidden;border:1px solid #e2e5ea;"><img src="uploads/Ordinacija 3" alt="Ordinacija Marković Dentist" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
         <div style="grid-column:span 1;grid-row:span 1;border-radius:12px;overflow:hidden;border:1px solid #e2e5ea;"><img src="uploads/Ordinacija 4" alt="Ordinacija Marković Dentist" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;"></div>
-      </div>
-      
-      
+      </div></div>
+      <div ref="{{ galleryDotsRef }}" style="display:none;justify-content:center;align-items:center;gap:8px;margin-top:26px;"></div>
     </div>
   </section>
 
-  <section style="padding:clamp(72px,9vw,112px) 24px;background:#f7f8fa;">
+  <section style="padding:clamp(48px,9vw,112px) 24px;background:#f7f8fa;">
     <div style="max-width:1280px;margin:0 auto;">
       <div style="max-width:640px;margin-bottom:44px;">
         <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4vw,46px);line-height:1.06;letter-spacing:-0.03em;margin:0;color:#16181d;">Naši pacijenti</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;">
-        <div style="border:1px solid #e4e7ec;border-radius:14px;padding:30px;background:#fff;display:flex;flex-direction:column;gap:18px;">
-          
-          <div style="display:flex;gap:3px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg></div>
-          <p style="font-size:18px;line-height:1.6;color:#3a3f49;margin:0;flex:1;">Sve pohvale za ljubazno osoblje i veoma profesionalnu uslugu.</p>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <img src="uploads/Milos.png" alt="Miloš P." style="width:44px;height:44px;border-radius:50%;object-fit:cover;display:block;">
-            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#16181d;">Miloš P.</span>
+      <div ref="{{ revViewportRef }}" style="overflow:visible;">
+        <div ref="{{ revContainerRef }}" style="display:flex;flex-wrap:wrap;gap:20px;">
+          <div style="flex:1 1 300px;min-width:0;border:1px solid #e4e7ec;border-radius:14px;padding:30px;background:#fff;display:flex;flex-direction:column;gap:18px;">
+            <div style="display:flex;gap:3px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg></div>
+            <p style="font-size:18px;line-height:1.6;color:#3a3f49;margin:0;flex:1;">Sve pohvale za ljubazno osoblje i veoma profesionalnu uslugu.</p>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <img src="uploads/Milos.png" alt="Miloš P." style="width:44px;height:44px;border-radius:50%;object-fit:cover;display:block;">
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#16181d;">Miloš P.</span>
+            </div>
           </div>
-        </div>
-        <div style="border:1px solid #e4e7ec;border-radius:14px;padding:30px;background:#fff;display:flex;flex-direction:column;gap:18px;">
-          
-          <div style="display:flex;gap:3px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg></div>
-          <p style="font-size:18px;line-height:1.6;color:#3a3f49;margin:0;flex:1;">Najbolja i najopremljenija zubna ordinacija. Ljubazni, korektni. Sve 10-ke ♥️</p>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <img src="uploads/Jelena.png" alt="Jelena B." style="width:44px;height:44px;border-radius:50%;object-fit:cover;display:block;">
-            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#16181d;">Jelena B.</span>
+          <div style="flex:1 1 300px;min-width:0;border:1px solid #e4e7ec;border-radius:14px;padding:30px;background:#fff;display:flex;flex-direction:column;gap:18px;">
+            <div style="display:flex;gap:3px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg></div>
+            <p style="font-size:18px;line-height:1.6;color:#3a3f49;margin:0;flex:1;">Najbolja i najopremljenija zubna ordinacija. Ljubazni, korektni. Sve 10-ke ♥️</p>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <img src="uploads/Jelena.png" alt="Jelena B." style="width:44px;height:44px;border-radius:50%;object-fit:cover;display:block;">
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#16181d;">Jelena B.</span>
+            </div>
           </div>
-        </div>
-        <div style="border:1px solid #e4e7ec;border-radius:14px;padding:30px;background:#fff;display:flex;flex-direction:column;gap:18px;">
-          
-          <div style="display:flex;gap:3px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg></div>
-          <p style="font-size:18px;line-height:1.6;color:#3a3f49;margin:0;flex:1;">Profesionalna i stručna usluga na najvišem nivou!</p>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <img src="uploads/Dragoljub.png" alt="Dragoljub P." style="width:44px;height:44px;border-radius:50%;object-fit:cover;display:block;">
-            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#16181d;">Dragoljub P.</span>
+          <div style="flex:1 1 300px;min-width:0;border:1px solid #e4e7ec;border-radius:14px;padding:30px;background:#fff;display:flex;flex-direction:column;gap:18px;">
+            <div style="display:flex;gap:3px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#f5b301"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"></path></svg></div>
+            <p style="font-size:18px;line-height:1.6;color:#3a3f49;margin:0;flex:1;">Profesionalna i stručna usluga na najvišem nivou!</p>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <img src="uploads/Dragoljub.png" alt="Dragoljub P." style="width:44px;height:44px;border-radius:50%;object-fit:cover;display:block;">
+              <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#16181d;">Dragoljub P.</span>
+            </div>
           </div>
         </div>
       </div>
+      <div ref="{{ revDotsRef }}" style="display:none;justify-content:center;align-items:center;gap:8px;margin-top:26px;"></div>
     </div>
   </section>
 
-  <section id="lokacija" style="padding:clamp(72px,9vw,112px) 24px clamp(120px,14vw,165px);scroll-margin-top:80px;">
+  <section id="lokacija" style="padding:clamp(48px,9vw,112px) 24px clamp(64px,14vw,165px);scroll-margin-top:80px;">
     <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,60px);align-items:stretch;">
       <div style="flex:2 1 320px;display:flex;flex-direction:column;">
         <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,4vw,46px);line-height:1.06;letter-spacing:-0.03em;margin:0;color:#16181d;">Gde se nalazimo</h2>
@@ -174,7 +223,7 @@
             <a href="tel:+38163649655" style="display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;color:#16181d;margin-top:10px;">063 649655</a>
           </div>
         </div>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=45.5725339,19.6460958&amp;destination_place_id=ChIJE27mJCdFW0cR17ckO-4RgZg" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:var(--accent,#00adf1);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;padding:15px 26px;border-radius:8px;margin-top:auto;" style-hover="filter:brightness(0.93);">
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=45.5725339,19.6460958&amp;destination_place_id=ChIJE27mJCdFW0cR17ckO-4RgZg" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:var(--accent,#00adf1);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;padding:15px 26px;border-radius:8px;margin-top:32px;" style-hover="filter:brightness(0.93);">
           Dođite do nas
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </a>
@@ -185,9 +234,8 @@
     </div>
   </section>
 
-  <section style="position:relative;padding:clamp(104px,12vw,156px) 24px clamp(124px,14vw,180px);background:#eaf5fc;">
-    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;top:0;left:0;width:100%;height:clamp(44px,5.5vw,90px);transform:translateY(calc(-100% + 1px));display:block;"><path d="M0,90 Q720,-8 1440,90 Z" fill="#eaf5fc"></path></svg>
-    
+  <section style="position:relative;padding:clamp(52px,12vw,156px) 24px clamp(64px,14vw,180px);background:#eaf5fc;">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;top:0;left:0;width:100%;height:clamp(30px,4vw,64px);transform:translateY(calc(-100% + 1px));display:block;"><path d="M0,90 Q720,42 1440,90 Z" fill="#eaf5fc"></path></svg>
     <div style="max-width:1280px;margin:0 auto;">
       <div style="max-width:760px;">
         <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,4.6vw,54px);line-height:1.04;letter-spacing:-0.03em;margin:0;text-wrap:balance;color:#16181d;">Vaš sledeći korak može biti samo <span style="color:var(--accent,#00adf1);">jedan</span> <span style="color:#ea018d;">poziv</span></h2>
@@ -242,14 +290,18 @@
   </div>
 
 </div>
-<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#00adf1"></rect><path d="M50 26c-9-7-20-7-27 0-6 6-7 15-5 27 2 12 4 25 9 34 2 4 5 6 7 5 3-1 3-6 4-13 1-6 2-11 12-11s11 5 12 11c1 7 1 12 4 13 2 1 5-1 7-5 5-9 7-22 9-34 2-12 1-21-5-27-7-7-18-7-27 0Z" fill="#fff"></path></svg></template></x-dc>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#00adf1"></rect><path d="M50 26c-9-7-20-7-27 0-6 6-7 15-5 27 2 12 4 25 9 34 2 4 5 6 7 5 3-1 3-6 4-13 1-6 2-11 12-11s11 5 12 11c1 7 1 12 4 13 2 1 5-1 7-5 5-9 7-22 9-34 2-12 1-21-5-27-7-7-18-7-27 0Z" fill="#fff"></path></svg></template>
+</x-dc>
 <script type="text/x-dc" data-dc-script data-props="{
   &quot;accentColor&quot;: {&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#00adf1&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#00adf1&quot;,&quot;#ea018d&quot;,&quot;#0090c9&quot;],&quot;section&quot;:&quot;Izgled&quot;},
   &quot;showSticky&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Izgled&quot;}
 }">
 class Component extends DCLogic {
+  state = { menuOpen: false };
   componentDidMount(){
     this._apply();
+    this._mobile = null;
+    this._carousels = {};
     this._heroPast = false;
     if(this.heroEl && 'IntersectionObserver' in window){
       this._io = new IntersectionObserver((entries) => {
@@ -259,17 +311,116 @@ class Component extends DCLogic {
       this._io.observe(this.heroEl);
     }
     this._sync();
-    this._initSmoothScroll();
     this._initNav();
+    if(this.rootEl && 'ResizeObserver' in window){
+      this._ro = new ResizeObserver(() => this._checkWidth());
+      this._ro.observe(this.rootEl);
+    }
+    this._checkWidth();
   }
-  componentDidUpdate(){ this._apply(); this._sync(); }
+  componentDidUpdate(){ this._apply(); this._sync(); this._syncMenu(); this._placeHero(this._mobile); }
   componentWillUnmount(){
     if(this._io) this._io.disconnect();
+    if(this._ro) this._ro.disconnect();
     if(this._lenisTimer) clearTimeout(this._lenisTimer);
     if(this._raf) cancelAnimationFrame(this._raf);
     if(this._onClick) document.removeEventListener('click', this._onClick);
     if(this._onNavScroll) window.removeEventListener('scroll', this._onNavScroll);
     if(this._lenis) this._lenis.destroy();
+    Object.values(this._carousels || {}).forEach(c => c.embla && c.embla.destroy());
+  }
+  _checkWidth(){
+    const w = this.rootEl ? this.rootEl.clientWidth : window.innerWidth;
+    if(!w){ clearTimeout(this._widthTimer); this._widthTimer = setTimeout(() => this._checkWidth(), 60); return; }
+    const mobile = w <= 600;
+    if(mobile === this._mobile){ if(mobile) this._reinitCarousels(); return; }
+    this._mobile = mobile;
+    this._applyResponsive(mobile);
+    this._updateLenis(mobile);
+    this._applyCarousel('svc', this.svcVp, this.svcCt, this.svcDots, mobile, {desktopDisplay:'flex', desktopFlex:'1 1 300px'});
+    this._applyCarousel('rev', this.revVp, this.revCt, this.revDots, mobile, {desktopDisplay:'flex', desktopFlex:'1 1 300px'});
+    this._applyCarousel('gal', this.galVp, this.galleryEl, this.galDots, mobile, {desktopDisplay:'grid', desktopFlex:'', mobileHeight:'250px'});
+    if(!mobile && this.state.menuOpen) this.setState({menuOpen:false});
+  }
+  _applyResponsive(mobile){
+    if(this.rootEl) this.rootEl.classList.toggle('is-mobile', mobile);
+    this._placeHero(mobile);
+    if(mobile && this.navEl) this.navEl.style.transform = 'translateY(0)';
+    if(this.navLinksEl) this.navLinksEl.style.display = mobile ? 'none' : 'flex';
+    if(this.navCtaEl) this.navCtaEl.style.display = mobile ? 'none' : 'flex';
+    if(this.navBurgerEl) this.navBurgerEl.style.display = mobile ? 'inline-flex' : 'none';
+    if(this.navInnerEl){
+      this.navInnerEl.style.paddingLeft = mobile ? '20px' : '0px';
+      this.navInnerEl.style.paddingRight = mobile ? '20px' : '0px';
+    }
+  }
+  _reinitCarousels(){
+    Object.values(this._carousels || {}).forEach(c => {
+      if(c && c.embla){ c.embla.reInit(); if(c.dots) this._buildDots(c.embla, c.dots); }
+    });
+  }
+  _applyCarousel(key, viewport, container, dots, mobile, opts){
+    if(!viewport || !container) return;
+    opts = opts || {};
+    const slides = Array.from(container.children);
+    const expected = slides.length;
+    let entry = this._carousels[key];
+    if(mobile){
+      viewport.style.overflow = 'hidden';
+      container.style.display = 'flex';
+      container.style.flexWrap = 'nowrap';
+      slides.forEach(s => { s.style.flex = '0 0 100%'; if(opts.mobileHeight) s.style.height = opts.mobileHeight; });
+      const start = () => {
+        if(!window.EmblaCarousel){ setTimeout(start, 60); return; }
+        let e = this._carousels[key] && this._carousels[key].embla;
+        if(!e){ e = window.EmblaCarousel(viewport, { align: 'start', containScroll: 'trimSnaps' }); }
+        this._carousels[key] = { embla: e, dots: dots };
+        let tries = 0;
+        const settle = () => {
+          if(!this._carousels[key] || this._carousels[key].embla !== e) return;
+          e.reInit();
+          const n = e.scrollSnapList().length;
+          if(n >= expected || tries > 30){
+            if(dots) this._buildDots(e, dots);
+            return;
+          }
+          tries++; setTimeout(settle, 50);
+        };
+        settle();
+      };
+      start();
+    } else {
+      if(entry && entry.embla){ entry.embla.destroy(); }
+      this._carousels[key] = null;
+      viewport.style.overflow = 'visible';
+      container.style.display = opts.desktopDisplay || 'flex';
+      container.style.flexWrap = 'wrap';
+      container.style.transform = '';
+      slides.forEach(s => { s.style.flex = (opts.desktopFlex != null ? opts.desktopFlex : '1 1 300px'); s.style.transform=''; if(opts.mobileHeight) s.style.height=''; });
+      if(dots){ dots.style.display = 'none'; dots.innerHTML = ''; }
+    }
+  }
+  _buildDots(embla, dots){
+    dots.innerHTML = '';
+    dots.style.display = 'flex';
+    const snaps = embla.scrollSnapList();
+    snaps.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Kartica ' + (i+1));
+      b.style.cssText = 'width:8px;height:8px;padding:0;border:0;border-radius:99px;background:#cdd3db;cursor:pointer;transition:width .25s ease,background .25s ease;';
+      b.addEventListener('click', () => embla.scrollTo(i));
+      dots.appendChild(b);
+    });
+    const sel = () => {
+      const idx = embla.selectedScrollSnap();
+      Array.from(dots.children).forEach((c, i) => {
+        c.style.width = i === idx ? '24px' : '8px';
+        c.style.background = i === idx ? 'var(--accent,#00adf1)' : '#cdd3db';
+      });
+    };
+    if(!embla.__dotsBound){ embla.on('select', sel); embla.__dotsBound = true; }
+    sel();
   }
   _initNav(){
     let last = window.scrollY || 0;
@@ -278,11 +429,13 @@ class Component extends DCLogic {
       const y = window.scrollY || 0;
       const nav = this.navEl;
       if(!nav){ last = y; return; }
+      if(this._mobile){ nav.style.transform = 'translateY(0)'; last = y; return; }
       const h = nav.offsetHeight || 80;
       if(y <= h){
         if(hidden){ hidden = false; nav.style.transform = 'translateY(0)'; }
         last = y; return;
       }
+      if(this.state.menuOpen){ last = y; return; }
       if(y > last + 6 && !hidden){
         hidden = true; nav.style.transform = 'translateY(-100%)';
       } else if(y < last - 6 && hidden){
@@ -292,9 +445,17 @@ class Component extends DCLogic {
     };
     window.addEventListener('scroll', this._onNavScroll, {passive:true});
   }
+  _updateLenis(mobile){
+    if(mobile){
+      if(this._lenis){ this._lenis.destroy(); this._lenis = null; }
+      if(this._raf){ cancelAnimationFrame(this._raf); this._raf = null; }
+      return;
+    }
+    this._initSmoothScroll();
+  }
   _initSmoothScroll(){
     const fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
-    if(!fine) return; // native scrolling on touch
+    if(!fine) return;
     const start = () => {
       if(this._lenis) return;
       if(!window.Lenis){ this._lenisTimer = setTimeout(start, 60); return; }
@@ -302,17 +463,44 @@ class Component extends DCLogic {
       this._lenis = lenis;
       const raf = (t) => { lenis.raf(t); this._raf = requestAnimationFrame(raf); };
       this._raf = requestAnimationFrame(raf);
-      this._onClick = (e) => {
-        const a = e.target.closest && e.target.closest('a[href^="#"]');
-        if(!a) return;
-        const id = a.getAttribute('href');
-        if(!id || id.length < 2) return;
-        const el = document.querySelector(id);
-        if(el){ e.preventDefault(); lenis.scrollTo(el, { offset: -72, duration: 1.1 }); }
-      };
-      document.addEventListener('click', this._onClick);
+      if(!this._onClick){
+        this._onClick = (e) => {
+          const a = e.target.closest && e.target.closest('a[href^="#"]');
+          if(!a) return;
+          const id = a.getAttribute('href');
+          if(!id || id.length < 2) return;
+          const el = document.querySelector(id);
+          if(el && this._lenis){ e.preventDefault(); this._lenis.scrollTo(el, { offset: -72, duration: 1.1 }); }
+        };
+        document.addEventListener('click', this._onClick);
+      }
     };
     start();
+  }
+  _syncMenu(){
+    const open = this.state.menuOpen;
+    if(this.navMenuEl) this.navMenuEl.classList.toggle('open', open);
+    if(this.navBackdropEl) this.navBackdropEl.classList.toggle('open', open);
+    if(this.burgerIconEl){
+      this.burgerIconEl.innerHTML = open
+        ? '<path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>'
+        : '<path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>';
+    }
+  }
+  _placeHero(mobile){
+    if(!this.heroTitleEl || !this.heroEl) return;
+    if(mobile){
+      if(this.heroTitleEl.parentNode !== this.heroEl){
+        this._titleHome = this._titleHome || { parent: this.heroTitleEl.parentNode, next: this.heroTitleEl.nextSibling };
+        this.heroEl.appendChild(this.heroTitleEl);
+      }
+      this.heroTitleEl.classList.add('hero-over');
+    } else {
+      if(this._titleHome && this.heroTitleEl.parentNode !== this._titleHome.parent){
+        this._titleHome.parent.insertBefore(this.heroTitleEl, this._titleHome.next);
+      }
+      this.heroTitleEl.classList.remove('hero-over');
+    }
   }
   _apply(){
     if(this.rootEl) this.rootEl.style.setProperty('--accent', this.props.accentColor || '#00adf1');
@@ -320,7 +508,7 @@ class Component extends DCLogic {
   _sync(){
     const bar = this.barEl;
     if(!bar) return;
-    const show = (this.props.showSticky !== false) && this._heroPast;
+    const show = (this.props.showSticky !== false) && this._heroPast && !this._mobile;
     bar.style.transform = show ? 'translateY(0)' : 'translateY(140%)';
     bar.style.opacity = show ? '1' : '0';
     bar.style.pointerEvents = show ? 'auto' : 'none';
@@ -329,8 +517,28 @@ class Component extends DCLogic {
     return {
       rootRef: el => { this.rootEl = el; },
       navRef: el => { this.navEl = el; },
+      navInnerRef: el => { this.navInnerEl = el; },
+      navLinksRef: el => { this.navLinksEl = el; },
+      navCtaRef: el => { this.navCtaEl = el; },
+      navBurgerRef: el => { this.navBurgerEl = el; },
+      burgerIconRef: el => { this.burgerIconEl = el; },
+      navMenuRef: el => { this.navMenuEl = el; },
+      navBackdropRef: el => { this.navBackdropEl = el; },
+      heroMediaRef: el => { this.heroMediaEl = el; },
+      heroTitleRef: el => { this.heroTitleEl = el; },
       heroRef: el => { this.heroEl = el; },
       barRef: el => { this.barEl = el; },
+      galleryRef: el => { this.galleryEl = el; },
+      svcViewportRef: el => { this.svcVp = el; },
+      svcContainerRef: el => { this.svcCt = el; },
+      svcDotsRef: el => { this.svcDots = el; },
+      revViewportRef: el => { this.revVp = el; },
+      revContainerRef: el => { this.revCt = el; },
+      revDotsRef: el => { this.revDots = el; },
+      galleryViewportRef: el => { this.galVp = el; },
+      galleryDotsRef: el => { this.galDots = el; },
+      toggleMenu: (e) => { if(e) e.preventDefault(); this.setState(s => ({ menuOpen: !s.menuOpen })); },
+      closeMenu: () => { this.setState({ menuOpen: false }); },
     };
   }
 }
