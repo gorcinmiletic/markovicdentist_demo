@@ -80,6 +80,9 @@
       </button>
     </div>
     <div ref="{{ navMenuRef }}" data-menu style="background:#fff;">
+      <button onClick="{{ closeMenu }}" aria-label="Zatvori meni" style="position:absolute;top:22px;right:20px;display:flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;background:none;border:none;cursor:pointer;color:#16181d;z-index:2;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
+      </button>
       <nav style="display:flex;flex-direction:column;padding:8px 24px 20px;gap:2px;">
         <a href="#usluge" onClick="{{ closeMenu }}" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;color:#16181d;padding:14px 0;border-bottom:1px solid #f1f2f5;">Usluge</a>
         <a href="#galerija" onClick="{{ closeMenu }}" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;color:#16181d;padding:14px 0;border-bottom:1px solid #f1f2f5;">Galerija</a>
@@ -298,8 +301,7 @@
 }">
 class Component extends DCLogic {
   state = { menuOpen: false };
-  componentDidMount(){
-    this._apply();
+  componentDidMount(){    this._apply();
     this._mobile = null;
     this._carousels = {};
     this._heroPast = false;
@@ -312,6 +314,7 @@ class Component extends DCLogic {
     }
     this._sync();
     this._initNav();
+    this._initMenuSwipe();
     if(this.rootEl && 'ResizeObserver' in window){
       this._ro = new ResizeObserver(() => this._checkWidth());
       this._ro.observe(this.rootEl);
@@ -477,9 +480,40 @@ class Component extends DCLogic {
     };
     start();
   }
+  _initMenuSwipe(){
+    const menu = this.navMenuEl;
+    if(!menu) return;
+    let startX = 0, startY = 0, dx = 0, dragging = false;
+    menu.addEventListener('touchstart', (e) => {
+      if(!this.state.menuOpen) return;
+      startX = e.touches[0].clientX; startY = e.touches[0].clientY;
+      dx = 0; dragging = true;
+      menu.style.transition = 'none';
+    }, {passive:true});
+    menu.addEventListener('touchmove', (e) => {
+      if(!dragging) return;
+      const x = e.touches[0].clientX - startX;
+      const y = e.touches[0].clientY - startY;
+      if(Math.abs(y) > Math.abs(x) && dx === 0){ dragging = false; menu.style.transition=''; return; }
+      dx = x;
+      if(dx < 0){ menu.style.transform = 'translateX(' + dx + 'px)'; }
+    }, {passive:true});
+    const end = () => {
+      if(!dragging) return;
+      dragging = false;
+      menu.style.transition = '';
+      menu.style.transform = '';
+      if(dx < -70){ this.setState({ menuOpen: false }); }
+    };
+    menu.addEventListener('touchend', end);
+    menu.addEventListener('touchcancel', end);
+  }
   _syncMenu(){
     const open = this.state.menuOpen;
-    if(this.navMenuEl) this.navMenuEl.classList.toggle('open', open);
+    if(this.navMenuEl){
+      this.navMenuEl.classList.toggle('open', open);
+      if(!open) this.navMenuEl.style.transform = '';
+    }
     if(this.navBackdropEl) this.navBackdropEl.classList.toggle('open', open);
     if(this.burgerIconEl){
       this.burgerIconEl.innerHTML = open
